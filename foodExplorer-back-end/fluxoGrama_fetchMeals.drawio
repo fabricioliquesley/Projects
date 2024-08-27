@@ -1,0 +1,95 @@
+<mxfile host="app.diagrams.net" modified="2024-02-16T01:24:26.463Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36" etag="nFqs-S3pT6GZ8VCRf2TZ" version="23.1.4" type="device">
+  <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
+    <mxGraphModel dx="4185" dy="1865" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
+        <mxCell id="DYypWPZzhipKXXGTF4_w-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="DYypWPZzhipKXXGTF4_w-1" target="DYypWPZzhipKXXGTF4_w-16">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="536" y="472" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="456" y="472" />
+              <mxPoint x="456" y="473" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DYypWPZzhipKXXGTF4_w-5" value="sim" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="DYypWPZzhipKXXGTF4_w-3">
+          <mxGeometry x="-0.2322" y="2" relative="1" as="geometry">
+            <mxPoint x="19" y="2" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DYypWPZzhipKXXGTF4_w-6" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;Yes&lt;br&gt;&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="DYypWPZzhipKXXGTF4_w-3">
+          <mxGeometry x="-0.0247" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DYypWPZzhipKXXGTF4_w-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="DYypWPZzhipKXXGTF4_w-1" target="DYypWPZzhipKXXGTF4_w-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="DYypWPZzhipKXXGTF4_w-21" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;No&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="DYypWPZzhipKXXGTF4_w-9">
+          <mxGeometry x="-0.3714" y="3" relative="1" as="geometry">
+            <mxPoint x="-3" y="8" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DYypWPZzhipKXXGTF4_w-1" value="The request has a name or ingredients in the query parameters" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="186" y="392" width="189" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="DYypWPZzhipKXXGTF4_w-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="DYypWPZzhipKXXGTF4_w-8" target="DYypWPZzhipKXXGTF4_w-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="DYypWPZzhipKXXGTF4_w-8" value="fetch database for all meals" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="208" y="652" width="145" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="DYypWPZzhipKXXGTF4_w-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="DYypWPZzhipKXXGTF4_w-12" target="DYypWPZzhipKXXGTF4_w-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="DYypWPZzhipKXXGTF4_w-12" value="Request" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="220.5" y="282" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="DYypWPZzhipKXXGTF4_w-14" value="Response" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="220.5" y="817" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="DYypWPZzhipKXXGTF4_w-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="DYypWPZzhipKXXGTF4_w-16" target="DYypWPZzhipKXXGTF4_w-18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="DYypWPZzhipKXXGTF4_w-16" value="Fetch meals by name" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="516" y="442" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="DYypWPZzhipKXXGTF4_w-20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="DYypWPZzhipKXXGTF4_w-18" target="DYypWPZzhipKXXGTF4_w-14">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="576" y="772" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DYypWPZzhipKXXGTF4_w-23" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;Yes&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="DYypWPZzhipKXXGTF4_w-20">
+          <mxGeometry x="-0.06" y="-2" relative="1" as="geometry">
+            <mxPoint x="2" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DYypWPZzhipKXXGTF4_w-25" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="DYypWPZzhipKXXGTF4_w-18">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="576" y="742" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DYypWPZzhipKXXGTF4_w-26" value="&lt;font size=&quot;3&quot;&gt;No&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="DYypWPZzhipKXXGTF4_w-25">
+          <mxGeometry x="-0.2217" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DYypWPZzhipKXXGTF4_w-18" value="found something" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="511" y="562" width="130" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="DYypWPZzhipKXXGTF4_w-29" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="DYypWPZzhipKXXGTF4_w-27" target="DYypWPZzhipKXXGTF4_w-14">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="576" y="887" />
+              <mxPoint x="281" y="887" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DYypWPZzhipKXXGTF4_w-27" value="Fetch meals by&amp;nbsp;ingredients" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="516" y="752" width="120" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
