@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  background: #202020;
+  padding: 0 20px 28px;
+}
+
+form {
+  display: flex;
+  gap: 4px;
+}
+
+button {
+  padding: 4px;
+  cursor: pointer;
+}
+
+input {
+  outline: none;
+  padding-left: 2px;
+}
