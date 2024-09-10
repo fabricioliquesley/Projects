@@ -1,0 +1,9 @@
+{
+  "cSpell.words": [
+    "fastify",
+    "inorbit",
+    "postgresql"
+  ],
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "biomejs.biome"
+}
