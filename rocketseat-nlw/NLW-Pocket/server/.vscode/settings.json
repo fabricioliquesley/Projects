@@ -1,7 +1,10 @@
 {
   "cSpell.words": [
+    "dayjs",
     "fastify",
     "inorbit",
+    "paralleldrive",
+    "postgres",
     "postgresql"
   ],
   "editor.formatOnSave": true,
