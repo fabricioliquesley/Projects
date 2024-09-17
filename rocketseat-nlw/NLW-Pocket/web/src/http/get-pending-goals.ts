@@ -6,7 +6,9 @@ type getPendingGoalsResponse = {
 }[];
 
 export async function getPendingGoals(): Promise<getPendingGoalsResponse> {
-  const response = await fetch('http://localhost:3333/pending-goals');
+  const response = await fetch(
+    'https://inorbit-api.onrender.com/pending-goals'
+  );
 
   const data = await response.json();
 

@@ -1,5 +1,5 @@
 export async function markGoalAsCompleted(goalId: string) {
-  await fetch('http://localhost:3333/completions', {
+  await fetch('https://inorbit-api.onrender.com/completions', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

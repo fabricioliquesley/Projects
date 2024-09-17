@@ -4,7 +4,7 @@ interface CreateGoalBody {
 }
 
 export async function createGoal(body: CreateGoalBody) {
-  await fetch('http://localhost:3333/goals', {
+  await fetch('https://inorbit-api.onrender.com/goals', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

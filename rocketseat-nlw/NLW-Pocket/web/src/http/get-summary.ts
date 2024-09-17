@@ -12,7 +12,7 @@ interface SummaryResponse {
 }
 
 export async function getSummary(): Promise<SummaryResponse> {
-  const response = await fetch('http://localhost:3333/summary');
+  const response = await fetch('https://inorbit-api.onrender.com/summary');
 
   const data = await response.json();
 
