@@ -50,8 +50,8 @@ export function CreateGoal() {
   }
 
   return (
-    <DialogContent>
-      <div className="flex flex-col gap-6 h-full">
+    <DialogContent className="w-[200px]">
+      <div className="flex flex-col gap-6 h-full ">
         <div className="space-y-3">
           <div className="flex items-center justify-between">
             <DialogTitle>Cadastrar meta</DialogTitle>

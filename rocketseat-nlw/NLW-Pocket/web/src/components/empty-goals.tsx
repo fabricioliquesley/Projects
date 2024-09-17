@@ -7,12 +7,16 @@ import letsStart from '../assets/lets-start-illustration.svg';
 
 export function EmptyGoals() {
   return (
-    <div className="h-screen flex flex-col items-center justify-center gap-8">
+    <div className="h-screen flex flex-col items-center justify-center gap-8 p-4 ">
       <img src={logo} alt="In.orbit" />
-      <img src={letsStart} alt="Woman pressing a button to launch a rocket." />
-      <p className="text-zinc-300 leading-relaxed max-w-80 text-center">
+      <img
+        src={letsStart}
+        alt="Woman pressing a button to launch a rocket."
+        className="w-64 md:w-80"
+      />
+      <p className="text-zinc-300 leading-relaxed max-w-[260px] md:max-w-80 text-center text-sm md:text-base">
         Você ainda não cadastrou nenhuma meta, que tal{' '}
-        <b className="underline font-normal">cadastrar um</b> agora mesmo?
+        <b className="underline font-normal">cadastrar uma</b> agora mesmo?
       </p>
       <DialogTrigger asChild>
         <Button>

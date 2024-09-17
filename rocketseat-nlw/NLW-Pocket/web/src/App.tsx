@@ -16,7 +16,7 @@ export function App() {
 
   return (
     <Dialog>
-      {!data ? <Summary /> : <EmptyGoals />}
+      {data ? <Summary /> : <EmptyGoals />}
 
       <CreateGoal />
     </Dialog>
