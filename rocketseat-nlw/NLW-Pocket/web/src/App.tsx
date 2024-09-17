@@ -8,7 +8,7 @@ import { getSummary } from './http/get-summary';
 export function App() {
   const SIXTY_SECONDS = 60 * 1000;
 
-  const { isLoading } = useQuery({
+  const { data } = useQuery({
     queryFn: getSummary,
     queryKey: ['get-summary'],
     staleTime: SIXTY_SECONDS,
@@ -16,7 +16,7 @@ export function App() {
 
   return (
     <Dialog>
-      {!isLoading ? <Summary /> : <EmptyGoals />}
+      {!data ? <Summary /> : <EmptyGoals />}
 
       <CreateGoal />
     </Dialog>
