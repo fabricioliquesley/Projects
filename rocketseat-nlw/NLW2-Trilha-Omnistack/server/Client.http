@@ -1,0 +1,35 @@
+@baseUrl = http://localhost:3333
+
+POST {{baseUrl}}/classes HTTP/1.1
+content-type: application/json
+
+{
+  "name": "Leonardo Oliveira",
+  "avatar": "https://avatars.githubusercontent.com/u/2254731?v=4",
+  "whatsapp": "7070-7070",
+  "bio": "Formado em Historia em Rarvard",
+  "subject": "História",
+  "cost": 170,
+  "schedule": [
+    {"week_day": 1, "from": "8:00", "to": "12:30"},
+    {"week_day": 4, "from": "13:00", "to": "16:00"},
+    {"week_day": 5, "from": "13:00", "to": "16:00"}
+  ]
+}
+
+###
+GET {{baseUrl}}/classes
+  ?week_day=0
+  &subject=Artes
+  &time=06:00
+
+###
+POST {{baseUrl}}/connections HTTP/1.1
+content-type: application/json
+
+{
+  "user_id": "6e02351f-1055-4307-b971-c5eda87e7e67"
+}
+
+###
+GET {{baseUrl}}/connections HTTP/1.1
