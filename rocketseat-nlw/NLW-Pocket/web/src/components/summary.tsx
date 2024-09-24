@@ -83,7 +83,10 @@ export function Summary() {
                   {goals.map(goal => {
                     const time = dayjs(goal.completedAt).format('HH:mm');
                     return (
-                      <li className="flex items-center gap-2" key={goal.id}>
+                      <li
+                        className="flex items-center gap-2"
+                        key={goal.completedAt}
+                      >
                         <CheckCircle2 className="size-4 text-pink-500" />
                         <span className="text-sm text-zinc-400">
                           Você completou "
