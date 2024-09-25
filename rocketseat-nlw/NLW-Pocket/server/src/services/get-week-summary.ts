@@ -2,6 +2,11 @@ import { and, desc, eq, gte, lte, sql } from 'drizzle-orm';
 import { db } from '../db';
 import { goalCompletions, goals } from '../db/schema';
 import dayjs from 'dayjs';
+import utc from 'dayjs/plugin/utc';
+import timezone from 'dayjs/plugin/timezone';
+
+dayjs.extend(utc);
+dayjs.extend(timezone);
 
 type GoalsPerDay = Record<
   string,
@@ -35,7 +40,7 @@ export async function getWeekSummary() {
         title: goals.title,
         completedAt: goalCompletions.createdAt,
         completedAtDate: sql`
-          DATE(${goalCompletions.createdAt})
+          DATE(TIMEZONE('America/Sao_Paulo', ${goalCompletions.createdAt}))
         `.as('completedAtDate'),
       })
       .from(goalCompletions)
@@ -56,9 +61,9 @@ export async function getWeekSummary() {
         completions: sql`
           JSON_AGG(
             JSON_BUILD_OBJECT(
-            '1id', ${goalsCompletedInWeek.id},
+              'id', ${goalsCompletedInWeek.id},
               'title', ${goalsCompletedInWeek.title},
-              'completedAt', ${goalsCompletedInWeek.completedAt} 
+              'completedAt', ${goalsCompletedInWeek.completedAt}
             )
           )
         `.as('completions'),
@@ -86,7 +91,22 @@ export async function getWeekSummary() {
     })
     .from(goalsCompletedByWeekDay);
 
+  // const convertedGoalsPerDay = Object.entries(result.goalsPerDay).reduce(
+  //   (acc, [date, goals]) => {
+  //     acc[date] = goals.map(goal => ({
+  //       ...goal,
+  //       completedAt: dayjs(goal.completedAt).tz('America/Sao_Paulo').format(),
+  //     }));
+  //     return acc;
+  //   },
+  //   {}
+  // );
+
   return {
+    // summary: {
+    //   ...result,
+    //   goalsPerDay: convertedGoalsPerDay,
+    // },
     summary: result,
   };
 }

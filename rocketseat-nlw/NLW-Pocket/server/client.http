@@ -4,7 +4,7 @@ POST {{baseURL}}/goals HTTP/1.1
 content-type: application/json
 
 {
-  "title": "Caminhar 2km",
+  "title": "Caminhar 5km",
   "desiredWeeklyFrequency": 3
 }
 
@@ -13,11 +13,10 @@ POST {{baseURL}}/completions HTTP/1.1
 content-type: application/json
 
 {
-  "goalId": "e56dn77l7z479to659nqygbb"
+  "goalId": "j5voa2no4q5j6ijcn65fvcjb"
 }
 
 ###
-
 GET {{baseURL}}/pending-goals HTTP/1.1
 
 ###
