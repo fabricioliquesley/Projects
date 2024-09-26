@@ -16,7 +16,7 @@ app.setValidatorCompiler(validatorCompiler);
 app.setSerializerCompiler(serializerCompiler);
 
 app.register(fastifyCors, {
-  origin: '*',
+  origin: 'https://inorbit-seven.vercel.app/',
 });
 
 app.register(createGoalRoute);
