@@ -16,7 +16,7 @@ app.setValidatorCompiler(validatorCompiler);
 app.setSerializerCompiler(serializerCompiler);
 
 app.register(fastifyCors, {
-  origin: 'https://inorbit-seven.vercel.app/',
+  origin: 'inorbit-3krjoqmdg-fabricio-liquesley-dos-santos-projects.vercel.app',
 });
 
 app.register(createGoalRoute);
