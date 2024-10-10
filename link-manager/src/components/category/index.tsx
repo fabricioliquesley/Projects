@@ -9,13 +9,16 @@ type IconList = keyof typeof MaterialIcons.glyphMap
 interface CategoryProps extends PressableProps {
   title: string;
   icon: IconList;
+  isSelected?: boolean;
 }
 
-export function Category({ title, icon, ...rest }: CategoryProps) {
+export function Category({ title, icon, isSelected = false, ...rest }: CategoryProps) {
+  const COLOR = isSelected ? colors.green[300] : colors.gray[400];
+  
   return (
     <Pressable style={styles.container} {...rest}>
       <MaterialIcons name={icon} size={16} color={colors.gray[400]}/>
-      <Text style={styles.name}>{title}</Text>
+      <Text style={[styles.name, { color: COLOR }]}>{title}</Text>
     </Pressable>
-  )
+  ) 
 }
