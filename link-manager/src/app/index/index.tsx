@@ -1,9 +1,10 @@
-import { Image, TouchableOpacity, View } from "react-native";
+import { Image, TouchableOpacity, View, FlatList } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
 
 import { styles } from "./styles";
 import { colors } from "@/styles/colors";
 import { Categories } from "@/components/categories";
+import { Link } from "@/components/link";
 
 export default function Index() {
   return (
@@ -19,6 +20,20 @@ export default function Index() {
       </View>
       
       <Categories />
+      <FlatList 
+        data={["1", "2", "3"]}
+        keyExtractor={item => item}
+        renderItem={() => (
+          <Link 
+            name="YouTube" 
+            url="https://youtube.com" 
+            onDetails={() => console.log("clicou")}
+          />
+        )}
+        style={styles.links}
+        contentContainerStyle={styles.linksContent}
+        showsVerticalScrollIndicator={false}
+      />
     </View>
   )
 }
