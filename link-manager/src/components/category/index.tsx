@@ -17,7 +17,7 @@ export function Category({ title, icon, isSelected = false, ...rest }: CategoryP
   
   return (
     <Pressable style={styles.container} {...rest}>
-      <MaterialIcons name={icon} size={16} color={colors.gray[400]}/>
+      <MaterialIcons name={icon} size={16} color={COLOR}/>
       <Text style={[styles.name, { color: COLOR }]}>{title}</Text>
     </Pressable>
   ) 
