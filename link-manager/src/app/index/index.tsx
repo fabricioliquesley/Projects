@@ -1,3 +1,4 @@
+import { useState } from "react"; 
 import { Image, TouchableOpacity, View, FlatList, Modal, Text } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
 import { router } from "expo-router";
@@ -7,8 +8,11 @@ import { colors } from "@/styles/colors";
 import { Categories } from "@/components/categories";
 import { Link } from "@/components/link";
 import { Option } from "@/components/option";
+import { categories } from "@/utils/categories";
 
 export default function Index() { 
+  const [ category, setCategory ] = useState(categories[0].title);
+
   function navigateToAddLinkScreen() {
     return router.navigate("/add")
   }
@@ -25,7 +29,7 @@ export default function Index() {
         </TouchableOpacity>
       </View>
       
-      <Categories />
+      <Categories onChange={setCategory} selectedCategory={category}/>
       <FlatList 
         data={["1", "2", "3"]}
         keyExtractor={item => item}
