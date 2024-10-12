@@ -8,6 +8,7 @@ import { colors } from "@/styles/colors";
 import { Categories } from "@/components/categories";
 import { Input } from "@/components/input";
 import { Button } from "@/components/button";
+import { linkStorage } from "@/storage/link-storage";
 
 export default function Add() {
   const [ category, setCategory ] = useState("");
@@ -18,20 +19,34 @@ export default function Add() {
     return router.back();
   }
 
-  function handleAdd() {
-    if (!category) {
-      return Alert.alert("Categoria", "Selecione uma categoria.")
-    }
+  async function handleAdd() {
+    try {
+      if (!category) {
+        return Alert.alert("Categoria", "Selecione uma categoria.")
+      }
+  
+      if (!name.trim()) {
+        return Alert.alert("Nome", "Informe o nome.")
+      }
+  
+      if (!url.trim()) {
+        return Alert.alert("URL", "Informe a URL.")
+      }
 
-    if (!name.trim()) {
-      return Alert.alert("Nome", "Informe o nome.")
-    }
+      await linkStorage.save({
+        id: new Date().getTime().toString(),
+        name,
+        url,
+        category
+      })
 
-    if (!url.trim()) {
-      return Alert.alert("URL", "Informe a URL.")
+      Alert.alert("Sucesso", "Novo link adicionado", [
+        { text: "OK", onPress: navigateBack }
+      ])
+    } catch (error) {
+      Alert.alert("Erro", "Não foi possível adicionar o link.")
+      console.log(error);
     }
-
-    console.log({ category, name, url })
   }
 
   return (
