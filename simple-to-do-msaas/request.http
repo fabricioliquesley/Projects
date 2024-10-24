@@ -14,3 +14,12 @@ content-type: application/json
   "email": "john.smith@gmail.com",
   "password": "secret"
 }
+
+###
+POST {{baseurl}}/tasks HTTP/1.1
+content-type: application/json
+x-user-id: c00af9cb-20e2-409c-979b-166eb7dd705d
+
+{
+  "title": "code the API"
+}
