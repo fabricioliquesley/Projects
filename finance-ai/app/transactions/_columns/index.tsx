@@ -6,28 +6,11 @@ import { TypeBadge } from "../_components/type-badge";
 import { currencyConverter } from "@/app/_lib/currencyConverter";
 import { Button } from "@/app/_components/ui/button";
 import { PencilIcon, TrashIcon } from "lucide-react";
-
-export const TRANSACTION_CATEGORY_LABELS = {
-  HOUSING: "Moradia",
-  TRANSPORTATION: "Transporte",
-  FOOD: "Alimentação",
-  ENTERTAINMENT: "Entretenimento",
-  HEALTH: "Saúde",
-  UTILITY: "Utilidades",
-  SALARY: "Salário",
-  EDUCATION: "Educação",
-  OTHER: "Outros",
-};
-
-export const TRANSACTION_PAYMENT_METHOD_LABELS = {
-  BANK_TRANSFER: "Transferência Bancária",
-  BANK_SLIP: "Boleto Bancário",
-  CASH: "Dinheiro",
-  CREDIT_CARD: "Cartão de Crédito",
-  DEBIT_CARD: "Cartão de Débito",
-  OTHER: "Outros",
-  PIX: "Pix",
-};
+import {
+  TRANSACTION_CATEGORY_LABELS,
+  TRANSACTION_PAYMENT_METHOD_LABELS,
+} from "@/app/_constants/transactions";
+import { dateFormatter } from "@/app/_lib/dateFormatter";
 
 export const transactionColumns: ColumnDef<Transaction>[] = [
   {
@@ -59,11 +42,7 @@ export const transactionColumns: ColumnDef<Transaction>[] = [
     accessorKey: "date",
     header: "Data",
     cell: ({ row: { original: transaction } }) => {
-      return new Date(transaction.date).toLocaleDateString("pt-BR", {
-        day: "2-digit",
-        month: "long",
-        year: "numeric",
-      });
+      return dateFormatter(transaction.date);
     },
   },
   {
