@@ -1,7 +1,7 @@
 import { Badge } from "@/app/_components/ui/badge";
 import { TransactionType } from "@prisma/client";
 
-const transactionType = {
+const transactionTypeMap = {
   DEPOSIT: {
     text: "Depósito",
     style: "bg-[#55B02E14] text-[#55B02E] hover:bg-[#55B02E14]",
@@ -21,7 +21,7 @@ type TypeBadgeProps = {
 };
 
 export const TypeBadge = ({ type }: TypeBadgeProps) => {
-  const { text, style } = transactionType[type];
+  const { text, style } = transactionTypeMap[type];
 
   return (
     <Badge className={`font-bold ${style}`}>
