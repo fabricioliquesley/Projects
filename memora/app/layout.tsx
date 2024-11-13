@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { ClerkProvider } from "@clerk/nextjs";
 
 export const metadata: Metadata = {
   title: "Memora",
@@ -14,9 +13,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`h-dvh antialiased`}>
-        <ClerkProvider>{children}</ClerkProvider>
-      </body>
+      <body className={`antialiased h-dvh`}>{children}</body>
     </html>
   );
 }
