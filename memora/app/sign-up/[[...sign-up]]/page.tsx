@@ -1,5 +1,3 @@
-"use client";
-
 import {
   Card,
   CardHeader,
@@ -8,19 +6,14 @@ import {
   CardContent,
 } from "@/app/_components/ui/card";
 import { SignUpForm } from "../_components/signUpForm";
-import { useAuth } from "@clerk/nextjs";
-import { useRouter } from "next/navigation";
-import { useEffect } from "react";
 
-export default function Page() {
-  const { sessionId } = useAuth();
-  const router = useRouter();
+import { redirect } from "next/navigation";
+import { auth } from "@clerk/nextjs/server";
 
-  useEffect(() => {
-    if (sessionId) {
-      router.push("/");
-    }
-  }, [sessionId, router]);
+export default async function Page() {
+  const { sessionId } = await auth();
+
+  if (sessionId) redirect("/");
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-gray-100">
