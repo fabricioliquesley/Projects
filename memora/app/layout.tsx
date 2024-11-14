@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
+import { Toaster } from "sonner";
 
 export const metadata: Metadata = {
   title: "Memora",
@@ -15,7 +16,10 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <body className={`h-dvh antialiased`}>{children}</body>
+        <body className={`h-dvh antialiased`}>
+          <Toaster position="bottom-center" />
+          {children}
+        </body>
       </html>
     </ClerkProvider>
   );
