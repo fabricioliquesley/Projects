@@ -15,6 +15,10 @@ import {
 } from "@/app/_components/ui/form";
 import { useRouter } from "next/navigation";
 import { useSignUp } from "@clerk/nextjs";
+import { useState } from "react";
+import { Loading } from "@/app/_components/loading";
+import { isClerkAPIResponseError } from "@clerk/nextjs/errors";
+import { toast } from "sonner";
 
 const signUpFormSchema = z.object({
   fullName: z
@@ -53,14 +57,14 @@ export function SignUpForm() {
   const { isLoaded, signUp } = useSignUp();
   const router = useRouter();
 
-  async function handleSignUp(data: SignUpFormSchema) {
-    // const fullName = data.fullName.split(" ");
-    // const firstName = fullName[0];
-    // const lastName = fullName.at(-1) as string;
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
+  async function handleSignUp(data: SignUpFormSchema) {
     if (!isLoaded) return;
 
     try {
+      setIsSubmitting(true);
+
       await signUp.create({
         emailAddress: data.email,
         password: data.password,
@@ -72,7 +76,16 @@ export function SignUpForm() {
 
       router.push("/sign-up/verifying-code");
     } catch (error) {
-      console.error(JSON.stringify(error, null, 2));
+      setIsSubmitting(false);
+
+      if (isClerkAPIResponseError(error)) {
+        for (const err of error.errors) {
+          toast.error(err.message);
+        }
+      } else {
+        toast.error("something went wrong, try again!");
+        console.error(JSON.stringify(error, null, 2));
+      }
     }
   }
 
@@ -115,10 +128,11 @@ export function SignUpForm() {
           />
         </div>
         <CardFooter className="flex justify-end pt-4">
-          <Button type="submit">Register</Button>
+          <Button type="submit" disabled={isSubmitting}>
+            {isSubmitting ? <Loading /> : "Register"}
+          </Button>
         </CardFooter>
       </form>
     </Form>
   );
 }
-// gyH529#th

@@ -1,5 +1,6 @@
 "use client";
 
+import { Loading } from "@/app/_components/loading";
 import { Button } from "@/app/_components/ui/button";
 import { CardFooter } from "@/app/_components/ui/card";
 import {
@@ -14,9 +15,12 @@ import {
   InputOTPSlot,
 } from "@/app/_components/ui/input-otp";
 import { useSignUp } from "@clerk/nextjs";
+import { isClerkAPIResponseError } from "@clerk/nextjs/errors";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 import { z } from "zod";
 
 const verifyingCodeFormSchema = z.object({
@@ -37,10 +41,14 @@ export function VerifyingCodeForm() {
   const { isLoaded, signUp, setActive } = useSignUp();
   const router = useRouter();
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   async function handleVerifyingCode(data: VerifyingCodeFormSchema) {
     if (!isLoaded) return;
 
     try {
+      setIsSubmitting(true);
+
       const signUpAttempt = await signUp.attemptEmailAddressVerification({
         code: data.code,
       });
@@ -50,9 +58,19 @@ export function VerifyingCodeForm() {
         router.push("/");
       } else {
         console.error(JSON.stringify(signUpAttempt, null, 2));
+        throw new Error("failed");
       }
     } catch (error) {
-      console.error("Error:", JSON.stringify(error, null, 2));
+      setIsSubmitting(false);
+
+      if (isClerkAPIResponseError(error)) {
+        for (const err of error.errors) {
+          toast.error(err.message);
+        }
+      } else {
+        toast.error("something went wrong, try again!");
+        console.error("Error:", JSON.stringify(error, null, 2));
+      }
     }
   }
 
@@ -81,7 +99,9 @@ export function VerifyingCodeForm() {
           />
         </div>
         <CardFooter className="flex justify-end pt-4">
-          <Button type="submit">Check code</Button>
+          <Button type="submit" disabled={isSubmitting}>
+            {isSubmitting ? <Loading /> : "Check code"}
+          </Button>
         </CardFooter>
       </form>
     </Form>
