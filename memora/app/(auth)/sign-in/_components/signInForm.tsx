@@ -20,6 +20,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { z } from "zod";
+import { EyeIcon, EyeClosedIcon } from "lucide-react";
 
 const signInFormSchema = z.object({
   email: z.string().email({
@@ -44,6 +45,7 @@ export function SignInForm() {
   const router = useRouter();
 
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [passwordIsVisible, setPasswordIsVisible] = useState(false);
 
   const handleSubmit = signInForm.handleSubmit(
     async (data: SignInFormSchema) => {
@@ -78,6 +80,10 @@ export function SignInForm() {
     },
   );
 
+  function togglePasswordVisibility() {
+    setPasswordIsVisible(!passwordIsVisible);
+  }
+
   return (
     <Form {...signInForm}>
       <form onSubmit={handleSubmit}>
@@ -99,7 +105,27 @@ export function SignInForm() {
             render={({ field }) => (
               <FormItem className="space-y-2">
                 <Label htmlFor="password">Password</Label>
-                <Input id="password" type="password" {...field} />
+                <div className="relative">
+                  <Input
+                    id="password"
+                    type={passwordIsVisible ? "text" : "password"}
+                    {...field}
+                    className="pr-8"
+                  />
+                  <Button
+                    variant={"link"}
+                    size={"icon"}
+                    type="button"
+                    className="absolute right-0 top-0"
+                    onClick={togglePasswordVisibility}
+                  >
+                    {passwordIsVisible ? (
+                      <EyeClosedIcon size={18} />
+                    ) : (
+                      <EyeIcon size={18} />
+                    )}
+                  </Button>
+                </div>
                 <FormMessage />
               </FormItem>
             )}
