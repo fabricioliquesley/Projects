@@ -115,9 +115,16 @@ export function SignInForm() {
               Register here
             </Link>
           </div>
+          <div className="text-sm text-gray-500">
+            <Link
+              href="/forgot-password"
+              className="text-blue-500 hover:underline"
+            >
+              forgot your password?
+            </Link>
+          </div>
         </CardFooter>
       </form>
     </Form>
   );
 }
-// 45Gy9b5Fg
