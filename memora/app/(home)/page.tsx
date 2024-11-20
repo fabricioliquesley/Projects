@@ -1,23 +1,18 @@
 "use client";
 
-import { useUser } from "@clerk/nextjs";
-import { redirect } from "next/navigation";
+import { UserButton, useUser } from "@clerk/nextjs";
 
 export default function Home() {
-  const { isLoaded, isSignedIn, user } = useUser();
+  const { isLoaded, user } = useUser();
 
-  if (!isLoaded) {
+  if (!isLoaded || !user) {
     return <p>Loading...</p>;
-  }
-
-  if (!isSignedIn) {
-    // You could also add a redirect to the sign-in page here
-    redirect("/sign-up");
   }
 
   return (
     <div className="flex h-full items-center justify-center">
       <h1>Hello, {user.firstName}</h1>
+      <UserButton />
     </div>
   );
 }
