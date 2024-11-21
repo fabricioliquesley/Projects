@@ -21,6 +21,7 @@ import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { z } from "zod";
 import { EyeIcon, EyeClosedIcon } from "lucide-react";
+import { SocialConnections } from "./socialConnections";
 
 const signInFormSchema = z.object({
   email: z.string().email({
@@ -135,6 +136,7 @@ export function SignInForm() {
           <Button type="submit" className="w-full" disabled={isSubmitting}>
             {isSubmitting ? <Loading /> : "Sign In"}
           </Button>
+          <SocialConnections />
           <div className="text-sm text-gray-500">
             Don&apos;t have an account?{" "}
             <Link href="/sign-up" className="text-blue-500 hover:underline">
